@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexandra Goh">
+<meta name="dcterms.date" content="2024-04-16">
+
+<title>ETC3250/5250 Assignment 3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="assign03-submission_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assign03-submission_files/libs/quarto-html/quarto.js"></script>
+<script src="assign03-submission_files/libs/quarto-html/popper.min.js"></script>
+<script src="assign03-submission_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assign03-submission_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assign03-submission_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assign03-submission_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assign03-submission_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assign03-submission_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assign03-submission_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="assign03-submission_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="assign03-submission_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="assign03-submission_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="assign03-submission_files/libs/viz-1.8.2/viz.js"></script>
+<link href="assign03-submission_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="assign03-submission_files/libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<link rel="stylesheet" href="assignment.css">
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ETC3250/5250 Assignment 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandra Goh </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 16, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- Guide to using quarto at https://quarto.org/docs/get-started/hello/rstudio.html -->
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="basics-of-trees-and-forests-9pts" class="level4">
+<h4 class="anchored" data-anchor-id="basics-of-trees-and-forests-9pts">1. Basics of trees and forests (9pts)</h4>
+<p><br></p>
+<section id="a-for-the-following-tree-predict-this-observation-x11.53-x21.96-x31.36-x4-0.346." class="level5">
+<h5 class="anchored" data-anchor-id="a-for-the-following-tree-predict-this-observation-x11.53-x21.96-x31.36-x4-0.346.">(a) For the following tree, predict this observation, <code>x1=1.53, x2=1.96, x3=1.36, x4=-0.346</code>.</h5>
+<p><br></p>
+<p>The decision tree analysis begins at the root node, evaluating the feature <code>x3</code>. As <code>x3 = 1.36</code> is greater than or equal to 1.3 (i.e.&nbsp;at node 3), we proceed to the right child node. Within this node, it then considers the feature <code>x1</code>. As <code>x1 = 1.53</code>, this is greater than 1.2 hence leading to a traversal to the left child node.</p>
+<p>At this terminal node, the prediction for the observation is determined, resulting in the classification of class B. Therefore, based on the decision tree’s criteria, the observation with features <code>x1=1.53, x2=1.96, x3=1.36, x4=-0.346</code> is predicted to belong to class B.</p>
+<p><br></p>
+</section>
+<section id="b-for-this-forest-of-trees-predict-these-three-observations-on-each-tree-and-then-using-majority-rule-their-final-prediction." class="level5">
+<h5 class="anchored" data-anchor-id="b-for-this-forest-of-trees-predict-these-three-observations-on-each-tree-and-then-using-majority-rule-their-final-prediction.">(b) For this forest of trees, predict these three observations on each tree, and then using majority rule, their final prediction.</h5>
+<p><br></p>
+<p>We will predict these three observations:</p>
+<ul>
+<li><p>Observation 1: <code>x1 = 1.53, x2 = 1.96, x3 = 1.36, x4 = -0.346</code></p></li>
+<li><p>Observation 2: <code>x1 = 1.12, x2 = 0.741, x3 = 1.47, x4 = 0.926</code></p></li>
+<li><p>Observation 3: <code>x1 = 0.0899, x2 = -0.139, x3 = -0.0951, x4 = 1.87</code></p></li>
+</ul>
+<p>Below are the predictions for each observation on each tree:</p>
+<p><strong>First Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class B</li>
+<li>Observation 2: predicted to be class B</li>
+<li>Observation 3: predicted to be class A</li>
+</ul>
+<p><strong>Second Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class B</li>
+<li>Observation 2: predicted to be class A</li>
+<li>Observation 3: predicted to be class B</li>
+</ul>
+<p><strong>Third Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class B</li>
+<li>Observation 2: predicted to be class B</li>
+<li>Observation 3: predicted to be class B</li>
+</ul>
+<p><strong>Fourth Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class C</li>
+<li>Observation 2: predicted to be class A</li>
+<li>Observation 3: predicted to be class A</li>
+</ul>
+<p><strong>Fifth Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class B</li>
+<li>Observation 2: predicted to be class A</li>
+<li>Observation 3: predicted to be class A</li>
+</ul>
+<p><strong>Sixth Tree:</strong></p>
+<ul>
+<li>Observation 1: predicted to be class B</li>
+<li>Observation 2: predicted to be class B</li>
+<li>Observation 3: predicted to be class A</li>
+</ul>
+<p><br></p>
+<p>Using majority rule, the final predictions for each observation are:</p>
+<ul>
+<li>Observation 1: class B</li>
+<li>Observation 2: either class A or class B</li>
+<li>Observation 3: class A</li>
+</ul>
+<p>For observation 2, we have three out of six trees which predicted it to be class A. At the same time, we have three out of six trees which also predicted observation 2 to be class B.</p>
+<p><br></p>
+</section>
+<section id="c-for-the-three-observations-which-was-the-model-most-uncertain-about-explain-your-reasoning.-note-that-these-three-observations-were-out-of-bag-for-each-of-the-tree-models." class="level5">
+<h5 class="anchored" data-anchor-id="c-for-the-three-observations-which-was-the-model-most-uncertain-about-explain-your-reasoning.-note-that-these-three-observations-were-out-of-bag-for-each-of-the-tree-models.">(c) For the three observations, which was the model most uncertain about? Explain your reasoning. (Note that, these three observations were out-of-bag for each of the tree models.)</h5>
+<p><br></p>
+<p>The model was most uncertain about Observation 2. This uncertainty arises because, for each of the six trees in the forest, Observation 2 was out-of-bag, meaning it wasn’t included in the training set for that particular tree. Out-of-bag samples are used to estimate the model’s performance without the need for a separate validation set. In the case of Observation 2, out of the six trees, three predicted it to be class A, while the other three predicted it to be class B. This balanced split in predictions indicates that, even when considering different subsets of the data, the model was not able to confidently assign Observation 2 to a single class, resulting in ambiguity.</p>
+<p>Therefore, Observation 2 represents the instance where the model was most uncertain about its prediction, and this uncertainty is highlighted by the balanced split in predictions across the out-of-bag samples used by each tree in the forest.</p>
+<p><br></p>
+</section>
+</section>
+<section id="tuning-a-model-12pts" class="level4">
+<h4 class="anchored" data-anchor-id="tuning-a-model-12pts">2. Tuning a model (12pts)</h4>
+<p><br></p>
+<section id="a-fit-a-default-tree-to-the-training-data-using-the-rpart-package.-report-and-summarise-the-tree-fit-and-summarise-the-fit-using-the-test-set.-be-sure-to-use-the-tidymodels-style-of-coding." class="level5">
+<h5 class="anchored" data-anchor-id="a-fit-a-default-tree-to-the-training-data-using-the-rpart-package.-report-and-summarise-the-tree-fit-and-summarise-the-fit-using-the-test-set.-be-sure-to-use-the-tidymodels-style-of-coding.">(a) Fit a default tree to the training data, using the rpart package. Report and summarise the tree fit, and summarise the fit using the test set. (Be sure to use the tidymodels style of coding.)</h5>
+<p><br></p>
+<p>The default decision tree model fitted to the training dataset reveals insights into the factors influencing the classification of observations into two categories: <code>finance</code> and <code>birdsongs</code>. As seen in <a href="#fig-1">Figure&nbsp;1</a>, the root node initially splits the dataset into 649 observations, with approximately equal proportions of <code>finance</code> and <code>birdsongs</code> categories (49% and 51%, respectively). The most significant predictor for further splits appears to be the <code>trend</code> variable. When the <code>trend</code> variable is less than 0.52, the majority of observations (446 out of 649) are classified as <code>birdsongs</code>.</p>
+<p>Within this subset, the model identifies the <code>entropy</code> variable as another discriminating factor, where if <code>entropy</code> is less than 0.91, almost all observations (292 out of 295) are categorized as <code>birdsongs</code>. On the other hand, if <code>entropy</code> is greater than or equal to 0.91, the model examines the <code>x_acf1</code> variable.</p>
+<p>If <code>x_acf1</code> is greater than or equal to -0.45, the majority of observations (15 out of 18) are classified as <code>birdsongs</code>, otherwise, if <code>x_acf1</code> is less than -0.45, the majority (139 out of 154) are labeled as <code>finance</code>. Furthermore, within the <code>finance</code> category, the model further distinguishes between observations again based on the <code>x_acf1</code> and <code>trend</code> variables, with specific thresholds indicating a shift towards one category or another.</p>
+<p>Overall, the default decision tree provides insights into the relative importance of different predictors in determining classification outcomes, resulting in nodes with distinct class distributions.</p>
+<p><br></p>
+<p><u><strong>Default Tree Fit on Training Data</strong></u></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>parsnip model object
+
+n= 649 
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+ 1) root 649 320 finance (0.49 0.51)  
+   2) trend&lt; 0.52 446 130 birdsongs (0.71 0.29)  
+     4) entropy&lt; 0.91 292   3 birdsongs (0.99 0.01) *
+     5) entropy&gt;=0.91 154  27 finance (0.18 0.82)  
+      10) x_acf1&gt;=-0.45 15   3 birdsongs (0.80 0.20) *
+      11) x_acf1&lt; -0.45 139  15 finance (0.11 0.89)  
+        22) x_acf1&gt;=-1.1 57  15 finance (0.26 0.74)  
+          44) trend&lt; -0.69 23   8 birdsongs (0.65 0.35) *
+          45) trend&gt;=-0.69 34   0 finance (0.00 1.00) *
+        23) x_acf1&lt; -1.1 82   0 finance (0.00 1.00) *
+   3) trend&gt;=0.52 203   0 finance (0.00 1.00) *</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assign03-submission_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Default Decision Tree Visualization for Finance and Birdsongs Classification</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><u><strong>Default Tree Fit Evaluation on Test Data</strong></u></p>
+<p><br></p>
+<p>Based on the tree fit using the test set, the model demonstrates high accuracy levels when considering individual classes. Specifically, for observations classified as <code>birdsongs</code>, the default tree fit achieves an impressive accuracy of 99%, indicating that it correctly identified nearly all instances of <code>birdsongs</code> in the test data. This accuracy is driven by the model correctly identifying 157 instances of <code>birdsongs</code> (i.e.&nbsp;True Positives). However, there was one instance where the model misclassified a <code>birdsong</code> as <code>finance</code> (i.e.&nbsp;False Negative), indicating a slight weakness in distinguishing between these classes.</p>
+<p>Similarly, for <code>finance</code> observations, the model also exhibits strong performance, with an accuracy of 95%, indicating its ability to effectively classify the majority of <code>finance</code> instances as well. This accuracy is primarily due to correctly identifying 159 instances of <code>finance</code> (i.e.&nbsp;True Negatives). However, there were 8 instances where the model incorrectly classified <code>finance</code> as <code>birdsongs</code> (i.e.&nbsp;False Positives), suggesting a potential area for improvement in distinguishing between these categories.</p>
+<p>Overall, the model demonstrates robust performance in classifying both <code>birdsongs</code> and <code>finance</code> instances.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Confusion Matrix (Default Tree Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">birdsongs</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">finance</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">birdsongs</td>
+<td style="text-align: right;">157</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">finance</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">159</td>
+<td style="text-align: right;">0.95</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Consequently, the accuracy score of 97% reflects the model’s robust performance in correctly classifying observations across both <code>birdsongs</code> and <code>finance</code> categories. This high accuracy suggests that the model effectively captures the underlying patterns within the data, achieving strong predictive performance even across balanced classes.</p>
+<p>Overall, these results indicate that the default decision tree model performs relatively well in classifying observations into their respective categories. The high accuracy rates, observed both overall and in the confusion matrix, underscore the model’s effectiveness in accurately predicting class labels and discerning between <code>birdsongs</code> and <code>finance</code> classes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Overall Accuracy (Default Tree Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.97</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="b-using-the-capabilities-in-tidymodels-tune-the-tree-on-the-parameters-tree_depth-min_n-cost_complexity.-include-your-code-summarise-the-results-and-the-parameters-that-will-lead-to-the-best-model." class="level5">
+<h5 class="anchored" data-anchor-id="b-using-the-capabilities-in-tidymodels-tune-the-tree-on-the-parameters-tree_depth-min_n-cost_complexity.-include-your-code-summarise-the-results-and-the-parameters-that-will-lead-to-the-best-model.">(b) Using the capabilities in <code>tidymodels</code> tune the tree on the parameters, <code>tree_depth</code>, <code>min_n</code>, <code>cost_complexity</code>. Include your code, summarise the results, and the parameters that will lead to the best model.</h5>
+<p><br></p>
+<p>The code for tuning the parameters <code>tree_depth</code>, <code>min_n</code>, and <code>cost_complexity</code> is shown as below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define tuning specifications for decision tree model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tune_spec <span class="ot">&lt;-</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">decision_tree</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tree_depth =</span> <span class="fu">tune</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_n =</span> <span class="fu">tune</span>(),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cost_complexity =</span> <span class="fu">tune</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the grid of hyperparameters to search over</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>tree_grid <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">tree_depth</span>(),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">min_n</span>(),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">cost_complexity</span>(),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels =</span> <span class="dv">5</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Define cross-validation folds</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>cell_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(financebirds_tr)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Define workflow for tuning</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>tree_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(tune_spec) <span class="sc">%&gt;%</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(type <span class="sc">~</span> .)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform hyperparameter tuning</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>tree_res <span class="ot">&lt;-</span> </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  tree_wf <span class="sc">%&gt;%</span> </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">resamples =</span> cell_folds,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">grid =</span> tree_grid</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><a href="#fig-2">Figure&nbsp;2</a> reveals that the model’s performance, as measured by accuracy and ROC AUC, varies across different tree depths and cost complexity values. Notably, the shallowest tree, with a depth of 1, consistently performs poorly across all evaluated cost complexity values, indicating its limited ability to capture the underlying patterns in the data. Conversely, deeper trees, such as those with a depth of 15, exhibit improved performance, although not consistently the best across all metrics.</p>
+<p>Optimal model performance appears to lie within a range of tree depths, particularly around 8 or 11, indicating a trade-off between model complexity and predictive accuracy. However, due to overlaps in <a href="#fig-2">Figure&nbsp;2</a>, it’s challenging to pinpoint the absolute best hyperparameter combination.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assign03-submission_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Variation in model performance metrics with cost complexity across different number of tree depths.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>To further explore the top-performing models, the <code>show_best()</code> function is employed to identify the top five hyperparameter combinations based on mean accuracy. This reveals a consistent trend, with models featuring cost complexity values of 0.0000000001 and tree depths ranging from 8 to 15 consistently achieving high mean accuracy scores, often around 98%.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Top 5 Best Hyperparameter Combinations by Mean Accuracy</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">cost_complexity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">tree_depth</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min_n</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std_err</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.config</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0.0000000001</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Preprocessor1_Model008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0.0000000001</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Preprocessor1_Model009</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0.0000000001</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Preprocessor1_Model010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0.0000000178</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Preprocessor1_Model033</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0.0000000178</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Preprocessor1_Model034</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Subsequently, the <code>select_best()</code> function is utilized to determine the optimal hyperparameter combination, which is identified as having a cost complexity of 0.0000000001, a tree depth of 8 and a <code>min_n</code> (i.e., minimum number of observations required in a node for further splitting) of 11. This combination is deemed the most effective in achieving high predictive accuracy while maintaining model simplicity.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Optimal Hyperparameter Combination</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">cost_complexity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">tree_depth</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min_n</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.config</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0.0000000001</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Preprocessor1_Model008</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="c-fit-this-best-model-to-the-training-data.-assess-and-summarise-the-fit-like-done-in-part-a.-write-a-sentence-or-two-on-how-this-improved-the-model-or-not." class="level5">
+<h5 class="anchored" data-anchor-id="c-fit-this-best-model-to-the-training-data.-assess-and-summarise-the-fit-like-done-in-part-a.-write-a-sentence-or-two-on-how-this-improved-the-model-or-not.">(c) Fit this best model to the training data. Assess and summarise the fit like done in part a. Write a sentence or two on how this improved the model or not.</h5>
+<p><br></p>
+<p>Comparing the default decision tree model with the best-tuned model in <a href="#fig-3">Figure&nbsp;3</a> reveals notable similarities and differences in their structure and predictive performance.</p>
+<p>In terms of structure, both models begin by separating the dataset into <code>finance</code> and <code>birdsongs</code> categories at the root node. While the default model relies primarily on the <code>trend</code> variable for further splits, there are additional splits based on the <code>x_acf1</code> and <code>entropy</code> variables in the best-tuned model that contribute to a more refined classification.</p>
+<p>For instance, node 88 in the best-tuned model specifies that when <code>x_acf1</code> is greater than or equal to -0.83, there are 10 observations classified as <code>birdsongs</code> with a probability of 100%, indicating a clear separation. Conversely, when <code>x_acf1</code> is less than -0.83 (node 89), there are 13 observations classified as <code>finance</code> with a probability of 62%, indicating a shift towards the <code>finance</code> category. Similarly, nodes 178 and 179 introduce splits based on the <code>entropy</code> variable. When <code>entropy</code> is less than 0.95 (node 178), all 4 observations are classified as <code>birdsongs</code> with a probability of 100%. On the other hand, when <code>entropy</code> is greater than or equal to 0.95 (node 179), there are 9 observations classified as <code>finance</code> with a probability of 89%. This results in a more complex decision tree structure in the best-tuned model, as evidenced by the increased number of nodes and splits compared to the default model.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow [trained] ══════════════════════════════════════════════════════════
+Preprocessor: Formula
+Model: decision_tree()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+type ~ .
+
+── Model ───────────────────────────────────────────────────────────────────────
+n= 649 
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+  1) root 649 320 finance (0.49 0.51)  
+    2) trend&lt; 0.52 446 130 birdsongs (0.71 0.29)  
+      4) entropy&lt; 0.91 292   3 birdsongs (0.99 0.01) *
+      5) entropy&gt;=0.91 154  27 finance (0.18 0.82)  
+       10) x_acf1&gt;=-0.45 15   3 birdsongs (0.80 0.20)  
+         20) trend&lt; -0.69 11   0 birdsongs (1.00 0.00) *
+         21) trend&gt;=-0.69 4   1 finance (0.25 0.75) *
+       11) x_acf1&lt; -0.45 139  15 finance (0.11 0.89)  
+         22) x_acf1&gt;=-1.1 57  15 finance (0.26 0.74)  
+           44) trend&lt; -0.69 23   8 birdsongs (0.65 0.35)  
+             88) x_acf1&gt;=-0.83 10   0 birdsongs (1.00 0.00) *
+             89) x_acf1&lt; -0.83 13   5 finance (0.38 0.62)  
+              178) entropy&lt; 0.95 4   0 birdsongs (1.00 0.00) *
+              179) entropy&gt;=0.95 9   1 finance (0.11 0.89) *
+           45) trend&gt;=-0.69 34   0 finance (0.00 1.00) *
+         23) x_acf1&lt; -1.1 82   0 finance (0.00 1.00) *
+    3) trend&gt;=0.52 203   0 finance (0.00 1.00) *</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assign03-submission_files/figure-html/fig-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Best Decision Tree Model Trained on Finance and Birdsongs Data</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>After tuning, we fit the best tree model to the test set. Comparing it with the default tree model, we find similar accuracy levels for <code>birdsongs</code>, with the default model slightly outperforming the best-tuned model by 1% (99% for the default model versus 98% for the best-tuned model). Specifically, the best tree model misclassified 3 <code>birdsongs</code> observations, while the default model misclassified only 1 <code>birdsongs</code> observation.</p>
+<p>In contrast, the best tree model outperforms the default model by 3% in the finance category, achieving 98% accuracy compared to the default model’s 95%. This improvement is because the best tree model misclassified only 3 <code>finance</code> observations, whereas the default model misclassified 8 <code>finance</code> observations.</p>
+<p>Overall, the confusion matrix for the best tree model demonstrates a high level of accuracy in classifying observations into <code>birdsongs</code> and <code>finance</code> categories, both achieving 98% accuracy. This indicates that the tuned model correctly classified the majority of instances in both categories.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Confusion Matrix (Best Tree Model After Tuning)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">birdsongs</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">finance</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">birdsongs</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">finance</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>The best tree model also demonstrates an impressive overall accuracy of 98%, indicating its robustness in accurately classifying instances into <code>birdsongs</code> and <code>finance</code> categories based on the provided features. This level of accuracy underscores the effectiveness of the model in making precise predictions.</p>
+<p>To conclude, both models (default and tuned) show proficiency in classifying the majority of observations, as evidenced by low loss values in the terminal nodes. However, the best-tuned model showcases enhanced granularity in its classification, especially within the <code>finance</code> category. By leveraging finer thresholds of the <code>x_acf1</code> and <code>entropy</code> variables, the best-tuned model achieves better predictive accuracy and robustness compared to the default model.</p>
+<p>These findings highlight the significance of balancing cost complexity and tree depth when optimizing model performance. While deeper trees may capture intricate patterns, they risk overfitting, while shallower trees might oversimplify the model.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Overall Accuracy (Best Tree Model After Tuning)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+</section>
+<section id="which-is-the-better-classifier-15pts" class="level4">
+<h4 class="anchored" data-anchor-id="which-is-the-better-classifier-15pts">3. Which is the better classifier? (15pts)</h4>
+<p><br></p>
+<section id="a-fit-summarise-and-assess-a-boosted-tree-model." class="level5">
+<h5 class="anchored" data-anchor-id="a-fit-summarise-and-assess-a-boosted-tree-model.">(a) Fit, summarise and assess a boosted tree model.</h5>
+<p><br></p>
+<p>The boosted tree model, when trained and assessed on the test dataset, demonstrates strong performance in distinguishing between <code>birdsongs</code> and <code>finance</code> observations. With a high overall accuracy of 98%, this means that the model correctly classified the majority of instances in the test dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Overall Accuracy (Boosted Tree Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Based on the confusion matrix below, both classes (<code>birdsongs</code> and <code>finance</code>) also exhibit high accuracy rates (97% and 99% respectively). For example, the model correctly identified 154 instances of <code>birdsongs</code>, but misclassified 4 instances as <code>finance</code>. Conversely, the model correctly identified 166 instances of <code>finance</code>, with only 1 misclassification as <code>birdsongs</code>.</p>
+<p>Interestingly, the boosted tree model demonstrates a slightly higher accuracy for the <code>finance</code> class compared to the best tree model after tuning (99% vs.&nbsp;98%) as the best tree model misclassified 3 <code>finance</code> observations, which is 2 more than the boosted tree. However, the best tree model after tuning shows a marginal improvement in accuracy for the <code>birdsongs</code> class compared to the boosted tree model (98% vs.&nbsp;97%) by misclassifying only 3 <code>birdsongs</code> instances, one less than the boosted tree model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Confusion Matrix (Boosted Tree Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">birdsongs</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">finance</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">birdsongs</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.97</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">finance</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">166</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Looking at <a href="#fig-4">Figure&nbsp;4</a>, the boosted tree starts with a split on the variable <code>trend</code>, with subsequent splits based on other variables such as <code>x_acf1</code> and <code>entropy</code>.</p>
+<p>Each split aims to reduce entropy and increase purity, as indicated by the gain values. Leaf nodes represent final predictions or classifications based on the values of the features. The tree structure shows a hierarchical decision-making process, where different features are considered at different levels to classify instances into different classes.</p>
+<p>Variables such as <code>trend</code> and <code>x_acf1</code> appear to be important for classifying instances in this boosted tree model. Based on the values of these features, the model effectively separates instances into distinct classes.</p>
+<div class="cell">
+<div id="fig-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-402123249ffee96d5527" style="width:100%;height:650px;"></div>
+<script type="application/json" data-for="htmlwidget-402123249ffee96d5527">{"x":{"diagram":"digraph {\n\ngraph [layout = \"dot\",\n       rankdir = \"LR\"]\n\nnode [color = \"DimGray\",\n      style = \"filled\",\n      fontname = \"Helvetica\"]\n\nedge [color = \"DimGray\",\n     arrowsize = \"1.5\",\n     arrowhead = \"vee\",\n     fontname = \"Helvetica\"]\n\n  \"1\" [label = \"Tree 0\ntrend\nCover: 162.25\nGain: 275.51474\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"2\" [label = \"entropy\nCover: 111.5\nGain: 262.748962\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"3\" [label = \"Leaf\nCover: 50.75\nValue: -0.588405848\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"4\" [label = \"entropy\nCover: 73\nGain: 0.381347656\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"5\" [label = \"x_acf1\nCover: 38.5\nGain: 24.4812241\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"6\" [label = \"Leaf\nCover: 72\nValue: 0.583561659\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"7\" [label = \"Leaf\nCover: 1\nValue: 0.150000006\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"8\" [label = \"x_acf1\nCover: 32.25\nGain: 4.35823822\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"9\" [label = \"trend\nCover: 6.25\nGain: 17.341114\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"10\" [label = \"Leaf\nCover: 20.5\nValue: -0.57209301\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"11\" [label = \"entropy\nCover: 11.75\nGain: 17.5748196\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"12\" [label = \"Leaf\nCover: 4\nValue: 0.480000019\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"13\" [label = \"Leaf\nCover: 2.25\nValue: -0.41538465\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"14\" [label = \"x_acf1\nCover: 3.25\nGain: 1.57219267\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"15\" [label = \"trend\nCover: 8.5\nGain: 0.0232200623\", fillcolor = \"Beige\", shape = \"rectangle\", fontcolor = \"black\"] \n  \"16\" [label = \"Leaf\nCover: 1.5\nValue: 0\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"17\" [label = \"Leaf\nCover: 1.75\nValue: 0.381818205\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"18\" [label = \"Leaf\nCover: 1\nValue: -0.150000006\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n  \"19\" [label = \"Leaf\nCover: 7.5\nValue: -0.529411793\", fillcolor = \"Khaki\", shape = \"oval\", fontcolor = \"black\"] \n\"1\"->\"2\" [label = \"< 0.516675472\", style = \"bold\"] \n\"2\"->\"4\" [label = \"< 0.913758993\", style = \"bold\"] \n\"4\"->\"6\" [label = \"< 0.908343792\", style = \"bold\"] \n\"5\"->\"8\" [label = \"< -0.517020464\", style = \"bold\"] \n\"8\"->\"10\" [label = \"< -1.10626674\", style = \"bold\"] \n\"9\"->\"12\" [label = \"< -0.686166346\", style = \"bold\"] \n\"11\"->\"14\" [label = \"< 0.972529292\", style = \"bold\"] \n\"14\"->\"16\" [label = \"< -0.985856354\", style = \"bold\"] \n\"15\"->\"18\" [label = \"< -0.689383149\", style = \"bold\"] \n\"1\"->\"3\" [style = \"bold\", style = \"solid\"] \n\"2\"->\"5\" [style = \"solid\", style = \"solid\"] \n\"4\"->\"7\" [style = \"solid\", style = \"solid\"] \n\"5\"->\"9\" [style = \"solid\", style = \"solid\"] \n\"8\"->\"11\" [style = \"solid\", style = \"solid\"] \n\"9\"->\"13\" [style = \"solid\", style = \"solid\"] \n\"11\"->\"15\" [style = \"solid\", style = \"solid\"] \n\"14\"->\"17\" [style = \"solid\", style = \"solid\"] \n\"15\"->\"19\" [style = \"solid\", style = \"solid\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<figcaption class="figure-caption">Figure&nbsp;4: Boosted Tree Model Trained on Finance and Birdsongs Data</figcaption>
+</figure>
+</div>
+</div>
+<p><br></p>
+<p>According to the table below, the most influential variables in the boosted tree model for predicting the target class are <code>trend</code> and <code>entropy</code>, with respective gains of 0.48 and 0.45. These variables exhibit significant coverage and frequency in the model, suggesting their strong predictive power. Conversely, variables such as <code>x_acf1</code> and <code>linearity</code> contribute less to the model’s predictive performance, as indicated by their lower gains and frequencies.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Variable Importance (Boosted Tree)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Feature</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Gain</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Cover</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">trend</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">entropy</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">x_acf1</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">linearity</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="b-fit-summarise-and-assess-a-random-forest-model." class="level5">
+<h5 class="anchored" data-anchor-id="b-fit-summarise-and-assess-a-random-forest-model.">(b) Fit, summarise and assess a random forest model.</h5>
+<p><br></p>
+<p>Using the <code>randomForest</code> algorithm with 1000 trees and considering 2 variables at each split, we trained a random forest model on our dataset. In this case, the out-of-bag (OOB) estimate of the error rate is relatively low at 1.7%, which indicates robust predictive performance on unseen data.</p>
+<p>Looking at the confusion matrix for the training data, we observed that 310 instances of <code>birdsongs</code> were correctly classified, with 6 instances misclassified as <code>finance</code>. Similarly, 328 instances of <code>finance</code> were correctly classified, with 5 instances misclassified as <code>birdsongs</code>. The error rate for the <code>birdsongs</code> class is slightly higher at 1.9%, relative to the error rate for the <code>finance</code> class at 1.5%.</p>
+<p>In summary, judging by the low OOB error rate and class error rates, the model appears to be effective in classifying instances into the <code>birdsongs</code> and <code>finance</code> classes for the training dataset.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>parsnip model object
+
+
+Call:
+ randomForest(x = maybe_data_frame(x), y = y, ntree = ~1000, mtry = min_cols(~2,      x)) 
+               Type of random forest: classification
+                     Number of trees: 1000
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 1.7%
+Confusion matrix:
+          birdsongs finance class.error
+birdsongs       310       6       0.019
+finance           5     328       0.015</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>When applied to the test dataset, the random forest model has a high overall accuracy of 98% (similar to the boosted tree and tuned best tree models). Delving into the confusion matrix for the test dataset, we found that 154 instances of <code>birdsongs</code> and 165 instances of <code>finance</code> were correctly classified, with only 4 <code>birdsongs</code> and 2 <code>finance</code> instances misclassified, resulting in accuracies of 97% and 99% for the respective classes.</p>
+<p>While the random forest model exhibits a similar number of misclassified instances for <code>birdsongs</code> compared to the boosted tree model, it has a slightly higher number of misclassifications for <code>finance</code> instances, with 2 misclassifications compared to 1 for the boosted tree model. Similarly, it shows a slight advantage over the tuned tree model in correctly classifying <code>finance</code> instances, with 2 misclassifications compared to 3 for the tuned tree model. However, the tuned tree model demonstrates a slightly better performance in classifying <code>birdsongs</code> instances compared to the random forest model, with 3 misclassifications versus 4.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Overall Accuracy (Random Forest Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">binary</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Confusion Matrix (Random Forest Model)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">birdsongs</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">finance</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">birdsongs</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.97</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">finance</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>In <a href="#fig-5">Figure&nbsp;5</a>, the variable importance plot provides insights into the features driving the model’s predictive power. <code>MeanDecreaseGini</code> quantifies the importance of each variable in a random forest model by measuring the decrease in Gini impurity resulting from splitting nodes on that variable across all trees, with higher values indicating greater importance for making accurate predictions.</p>
+<p>Notably, <code>entropy</code> emerges as the most influential feature, followed by <code>trend</code> and <code>x_acf1</code>, while <code>linearity</code> exhibits the lowest importance. This hierarchy suggests that <code>entropy</code> and <code>trend</code> play crucial roles in the model’s decision-making process, with <code>entropy</code> carrying the highest weight in determining class distinctions. Conversely, <code>linearity</code> is considered less important for predicting the target outcome, based on its lower position in the hierarchy of variable importance.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assign03-submission_files/figure-html/fig-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Variable Importance Plot showing ‘MeanDecreaseGini’ on the X-axis. Higher values on the X-axis indicate greater importance of the corresponding variables in predicting the target outcome.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="c-make-an-roc-curve-to-help-decide-which-of-the-five-models-fitted-is-the-better-model." class="level5">
+<h5 class="anchored" data-anchor-id="c-make-an-roc-curve-to-help-decide-which-of-the-five-models-fitted-is-the-better-model.">(c) Make an ROC curve to help decide which of the five models fitted is the better model.</h5>
+<p><br></p>
+<p>According to <a href="#fig-6">Figure&nbsp;6</a>, the ROC curves demonstrate excellent performance across all models, with AUC values ranging from 0.988 to 1. The boosted tree model achieved the highest AUC of 1, indicating perfect discriminatory power when distinguishing between the <code>birdsongs</code> and <code>finance</code> classes, followed closely by the random forest model with an AUC of 0.99.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assign03-submission_files/figure-html/fig-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: ROC Curve Comparison of Different Machine Learning Models. The ROC curves depict the performance of various models in classifying <code>birdsongs</code> (i.e.&nbsp;the positive class). Each curve represents a different model - Tuned Tree (blue), Boosted Tree (red), Random Forest (dark green), Linear Discriminant Analysis (LDA) (orange), and Logistic Regression (maroon). The area under the ROC curve (AUC) values for each model are provided in the legend.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="d-write-a-short-paragraph-describing-your-choice-of-best-model-and-what-you-have-learned-about-how-the-time-series-for-financial-data-and-birdsongs-typically-differ." class="level5">
+<h5 class="anchored" data-anchor-id="d-write-a-short-paragraph-describing-your-choice-of-best-model-and-what-you-have-learned-about-how-the-time-series-for-financial-data-and-birdsongs-typically-differ.">(d) Write a short paragraph describing your choice of best model, and what you have learned about how the time series for financial data and birdsongs typically differ.</h5>
+<p><br></p>
+<p>Based on the ROC curves in <a href="#fig-6">Figure&nbsp;6</a>, the boosted tree model stands out as the best performer for distinguishing between the birdsongs and financial observations. With an AUC of 1 and a high overall accuracy rate of 98%, it demonstrates high predictive power and robustness in classifying the majority of instances in the test dataset. Moreover, it outperformed other models in certain aspects, such as achieving a slightly higher accuracy for the <code>finance</code> class compared to the best-tuned tree model and random forest model. By analyzing different model performances, this reveals distinctive characteristics of time series data for financial data and birdsongs. Both the boosted and tuned tree models reveal that features such as <code>x_acf1</code> and <code>entropy</code> play important roles in distinguishing between the two classes. For instance, specific threshold values of <code>x_acf1</code> and <code>entropy</code> contribute to more refined classification decisions, leading to improved model accuracy. Additionally, the importance plot from the random forest model highlights the significance of features such as <code>entropy</code>, <code>trend</code>, and <code>x_acf1</code> in predicting class distinctions. These findings suggest that while features related to autocorrelation (represented by <code>x_acf1</code>) and <code>entropy</code> are often associated with non-linear and complex time series data such as birdsongs, variables such as <code>trend</code> is more commonly associated with financial data. Entropy and autocorrelation capture the complexity and temporal dependencies present in non-linear time series data such as birdsongs, reflecting the diversity and structure of birdsong audio tracks. In contrast, trend analysis is typically applied to financial time series data, identifying long-term directional movements in asset prices or market indices, which are influenced by underlying economic factors and market dynamics. Overall, effective feature selection and model tuning are essential for capturing the unique characteristics of diverse time series data.</p>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Chen, T., et al.&nbsp;(2024). <em>xgboost: Extreme Gradient Boosting.</em> R package version 1.7.7.1. Retrieved from <a href="https://CRAN.R-project.org/package=xgboost" class="uri">https://CRAN.R-project.org/package=xgboost</a>.</p>
+<p>Hvitfeldt, E., &amp; Kuhn, M. (2023). <em>discrim: Model Wrappers for Discriminant Analysis.</em> R package version 1.0.1. <a href="https://CRAN.R-project.org/package=discrim" class="uri">https://CRAN.R-project.org/package=discrim</a>.</p>
+<p>Kuhn, M., et al.&nbsp;(2020). Tidymodels: a collection of packages for modeling and machine learning using tidyverse principles. Retrieved from <a href="https://www.tidymodels.org" class="uri">https://www.tidymodels.org</a>.</p>
+<p>Liaw, A., &amp; Wiener, M. (2002). Classification and Regression by randomForest. <em>R News, 2</em>(3), 18–22.</p>
+<p>Milborrow, S. (2024). <em>rpart.plot: Plot ‘rpart’ Models: An Enhanced Version of ‘plot.rpart’.</em> R package version 3.1.2. <a href="https://CRAN.R-project.org/package=rpart.plot" class="uri">https://CRAN.R-project.org/package=rpart.plot</a>.</p>
+<p>Robin, X., Turck, N., Hainard, A., Tiberti, N., Lisacek, F., Sanchez, J.-C., &amp; Müller, M. (2011). pROC: an open-source package for R and S+ to analyze and compare ROC curves. <em>BMC Bioinformatics, 12</em>, 77. DOI: 10.1186/1471-2105-12-77. <a href="http://www.biomedcentral.com/1471-2105/12/77/" class="uri">http://www.biomedcentral.com/1471-2105/12/77/</a>.</p>
+<p>Therneau, T., &amp; Atkinson, B. (2023). <em>rpart: Recursive Partitioning and Regression Trees.</em> R package version 4.1.23. <a href="https://CRAN.R-project.org/package=rpart" class="uri">https://CRAN.R-project.org/package=rpart</a>.</p>
+<p>Wickham, H., et al.&nbsp;(2019). Welcome to the tidyverse. <em>Journal of Open Source Software, 4</em>(43), 1686. DOI:10.21105/joss.01686. Retrieved from <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a>.</p>
+<p>Wickham, H., &amp; François, R., &amp; Henry, L., &amp; Müller, K., &amp; Vaughan, D. (2023). <em>dplyr: A Grammar of Data Manipulation.</em> R package version 1.1.4. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+<p>Wickham, H., &amp; Hester, J., &amp; Bryan, J. (2024). <em>readr: Read Rectangular Text Data.</em> R package version 2.1.5. <a href="https://CRAN.R-project.org/package=readr" class="uri">https://CRAN.R-project.org/package=readr</a>.</p>
+<p>Zhu, H. (2024). <em>kableExtra: Construct Complex Table with ‘kable’ and Pipe Syntax.</em> R package version 1.4.0. <a href="https://CRAN.R-project.org/package=kableExtra" class="uri">https://CRAN.R-project.org/package=kableExtra</a>.</p>
+<p>OpenAI (2023). ChatGPT (version 3.5) [Large language model]. https://chat.openai.com/chat, full script of conversation <a href="https://chat.openai.com/share/213a9444-e202-402f-b1db-d07965d2c439">here</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
